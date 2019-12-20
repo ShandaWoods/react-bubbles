@@ -8,7 +8,10 @@ const initialColor = {
 };
 
 const ColorList = ({ colors, updateColors, history }) => {
-  console.log(colors);
+  // console.log(colors);
+  console.log("line11|colorsList|props.colors:",colors);
+
+
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
@@ -22,24 +25,27 @@ const ColorList = ({ colors, updateColors, history }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
+    
     axiosWithAuth()
     .put(`/colors/${colorToEdit.id}`, colorToEdit )
     .then(res => {
       updateColors(res.data);
-      history.push(`/colors/${colorToEdit.id}`);
+      axiosWithAuth().get(`/colors/`).then(res=>updateColors(res.data))
+      // history.push(`/colors/${colorToEdit.id}`);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
+
+    
   };
 
-  const deleteColor = (e, color) => {
-    e.preventDefault();
-   axiosWithAuth()
+  const deleteColor = async (color) => {
+   await axiosWithAuth()
       .delete(`/colors/${color.id}`)
       .then( res => {
         updateColors(res.data)
-        console.log('res after delete: ', res.data)
+        // console.log('res after delete: ', res.data)
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   };
 
   return (
@@ -51,7 +57,7 @@ const ColorList = ({ colors, updateColors, history }) => {
             <span>
               <span className="delete" onClick={e => {
                     e.stopPropagation();
-                    deleteColor(e, color)
+                    deleteColor(color)
                   }
                 }>
                   x

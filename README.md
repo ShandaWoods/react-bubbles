@@ -28,11 +28,32 @@ In this project you will create a login page and request a token from the server
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain what a token is used for.
-- [ ] What steps can you take in your web apps to keep your data secure?
-- [ ] Describe how web servers work.
-- [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+- [ x] Explain what a token is used for.
 
+       A token in web authentication is a security measure that lets users enter their username and password once and receive a uniquely-generated encrypted id. This token is used to access protected pages or other user related content on the page 
+
+
+- [ x] What steps can you take in your web apps to keep your data secure?
+
+1. Make sure dependencies are up to date
+	2. Explicitly declare user payloads
+	3. Make sure code is safe and secure
+	4. Store credentials outside of the codebase
+	5. Deny HTTP requests, use HTTPS
+	6. Make sure APIs are also secured via HTTPS
+	7. Log and Monitor suspicious behavior (i.e. Successful and unsuccessful logins, Password resets, Changes to access levels, Authorization failures)
+  8. Limit your own access by using two-factor authentication, locking computer screen when not at workstation and implementing unique passwords across accounts and use a password manager
+
+
+- [ x] Describe how web servers work.
+
+      "Web server" can refer to hardware or software, or both of them working together.  
+        1. On the hardware side, a web server is a computer that stores web server software and a website's component files (e.g. HTML documents, images, CSS stylesheets, and JavaScript files). It is connected to the Internet and supports physical data interchange with other devices connected to the web.
+        2. On the software side, a web server includes several parts that control how web users access hosted files, at minimum an HTTP server. An HTTP server is a piece of software that understands web addresses and HTTP. It can be accessed through the domain names of websites it stores, and delivers their content to the users device.
+
+- [ x] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+      
+      	Create, Read, Update, Delete can be mapped to POST, GET, PUT, PATCH, and DELETE. There are more, but these are the most common. 
 
 ## Project Set Up
 
