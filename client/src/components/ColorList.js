@@ -33,11 +33,11 @@ const ColorList = ({ colors, updateColors, history }) => {
 
   const deleteColor = (e, color) => {
     e.preventDefault();
-    axiosWithAuth()
+   axiosWithAuth()
       .delete(`/colors/${color.id}`)
-      .then(res => {
-        updateColors(res.data);
-        // history.push('/colors');
+      .then( res => {
+        updateColors(res.data)
+        console.log('res after delete: ', res.data)
       })
       .catch(err => console.log(err));
   };
